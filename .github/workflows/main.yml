@@ -13,7 +13,7 @@ jobs:
       matrix:
         python-version: [ "3.11", "3.12" ]
         debian-version: [ "bullseye", "bookworm" ]
-        target: [ "installer" ]
+        target: [ "installer", "pipx" ]
     uses: BlindfoldedSurgery/actions-container/.github/workflows/build-image-docker.yml@v2
     with:
       additional-build-args: |

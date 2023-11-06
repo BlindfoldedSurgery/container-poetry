@@ -37,3 +37,14 @@ RUN curl -sSL https://install.python-poetry.org | python3 -
 
 USER app
 WORKDIR /app
+
+FROM base AS pipx
+
+USER app
+
+ENV PATH="${PATH}:/app/.local/bin"
+
+RUN pip install --no-cache-dir --user pipx
+RUN pipx install poetry=="${POETRY_VERSION}"
+
+ENV POETRY_VIRTUALENVS_IN_PROJECT=false
