@@ -45,4 +45,4 @@ jobs:
       image-name: poetry
       push-image: true
       target: ${{ matrix.target }}
-      version: ${{ needs.version.outputs.version }}-${{ matrix.target }}-${{ matrix.python-version }}-${{ matrix.debian-version }}
+      version: ${{ needs.bump.outputs.version }}-${{ matrix.target }}-${{ matrix.python-version }}-${{ matrix.debian-version }}
