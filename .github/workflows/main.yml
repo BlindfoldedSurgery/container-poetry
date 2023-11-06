@@ -25,7 +25,6 @@ jobs:
       target: ${{ matrix.target }}
 
   bump:
-    needs: build-container-image
     uses: BlindfoldedSurgery/actions-releases/.github/workflows/commitizen-bump.yml@v2
     secrets:
       GH_TOKEN: ${{ secrets.GH_PR_TOKEN }}
