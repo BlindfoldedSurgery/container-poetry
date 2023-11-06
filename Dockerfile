@@ -1,0 +1,4 @@
+ARG PYTHON_VERSION
+FROM python:${PYTHON_VERSION}-slim
+
+# TODO

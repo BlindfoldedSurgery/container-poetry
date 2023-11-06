@@ -1,0 +1,9 @@
+on:
+  push:
+    branches: [ main ]
+  pull_request: { }
+
+jobs:
+  check:
+    uses: BlindfoldedSurgery/actions-actions/.github/workflows/commitizen-check.yml@v2
+    if: true
