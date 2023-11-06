@@ -48,6 +48,6 @@ jobs:
       additional-build-args: |
         PYTHON_VERSION=${{ matrix.python-version }}
         DEBIAN_VERSION=${{ matrix.debian-version }}
-      push-image: false
+      push-image: true
       target: ${{ matrix.target }}
       version: ${{ needs.version.outputs.version }}-${{ matrix.target }}-${{ matrix.python-version }}-${{ matrix.debian-version }}
