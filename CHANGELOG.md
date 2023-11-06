@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.0.3 (2023-11-06)
+
+### Fix
+
+- **ci**: Use version output from bump job
+
 ## v1.0.2 (2023-11-06)
 
 ### Fix
