@@ -11,10 +11,10 @@ RUN apt-get update -qq \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
-ARG IMAGE_VERSION=dev
+ARG APP_VERSION=dev
 LABEL org.opencontainers.image.licenses="MIT"
 LABEL org.opencontainers.image.url="https://github.com/BlindfoldedSurgery/container-poetry"
-LABEL org.opencontainers.image.version=$IMAGE_VERSION
+LABEL org.opencontainers.image.version=$APP_VERSION
 
 # renovate: datasource=pypi depName=poetry
 ENV POETRY_VERSION=1.7.0
