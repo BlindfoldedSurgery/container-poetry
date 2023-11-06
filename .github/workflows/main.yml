@@ -9,6 +9,15 @@ jobs:
     if: true
 
   build-container-image:
+    strategy:
+      matrix:
+        python-version: [ "3.11", "3.12" ]
+        debian-version: [ "bullseye", "bookworm" ]
+        target: [ "installer" ]
     uses: BlindfoldedSurgery/actions-container/.github/workflows/build-image-docker.yml@v2
     with:
+      additional-build-args: |
+        PYTHON_VERSION=${{ matrix.python-version }}
+        DEBIAN_VERSION=${{ matrix.debian-version }}
       push-image: ${{ false && github.ref_name == github.event.repository.default_branch }}
+      target: ${{ matrix.target }}
