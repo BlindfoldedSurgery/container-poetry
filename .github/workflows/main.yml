@@ -22,6 +22,7 @@ jobs:
       additional-build-args: |
         PYTHON_VERSION=${{ matrix.python-version }}
         DEBIAN_VERSION=${{ matrix.debian-version }}
+      image-name: poetry
       push-image: false
       target: ${{ matrix.target }}
 
@@ -48,6 +49,7 @@ jobs:
       additional-build-args: |
         PYTHON_VERSION=${{ matrix.python-version }}
         DEBIAN_VERSION=${{ matrix.debian-version }}
+      image-name: poetry
       push-image: true
       target: ${{ matrix.target }}
       version: ${{ needs.version.outputs.version }}-${{ matrix.target }}-${{ matrix.python-version }}-${{ matrix.debian-version }}
