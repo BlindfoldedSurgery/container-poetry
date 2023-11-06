@@ -19,14 +19,13 @@ LABEL org.opencontainers.image.version=$IMAGE_VERSION
 # renovate: datasource=pypi depName=poetry
 ENV POETRY_VERSION=1.7.0
 
+WORKDIR /app
 ENTRYPOINT [ "tini", "--", "poetry", "run" ]
 
 
+# Variant based on the Poetry installer
 FROM base AS installer
 
-ENV POETRY_HOME="/opt/poetry"
-ENV POETRY_VIRTUALENVS_IN_PROJECT=false
-ENV PATH="$POETRY_HOME/bin:$PATH"
 
 RUN apt-get update -qq \
     && apt-get install -y --no-install-recommends \
@@ -34,12 +33,16 @@ RUN apt-get update -qq \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
+USER app
+
+ENV POETRY_HOME="/opt/poetry"
+ENV POETRY_VIRTUALENVS_IN_PROJECT=false
+ENV PATH="$POETRY_HOME/bin:$PATH"
+
 RUN curl -sSL https://install.python-poetry.org | python3 -
 
-USER app
-WORKDIR /app
 
-
+# Variant based on pipx
 FROM base AS pipx
 
 USER app
