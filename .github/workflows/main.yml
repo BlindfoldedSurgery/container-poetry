@@ -5,12 +5,8 @@ on:
 
 jobs:
   check:
+    if: github.event_name == 'pull_request'
     uses: BlindfoldedSurgery/actions-releases/.github/workflows/commitizen-check.yml@v2
-    if: true
-
-  version:
-    uses: BlindfoldedSurgery/actions-releases/.github/workflows/commitizen-version.yml@v2
-    if: startsWith(github.ref, 'refs/tags/v')
 
   build-container-image:
     if: github.event_name == 'pull_request' || !startsWith(github.ref, 'refs/tags/v')
@@ -26,6 +22,16 @@ jobs:
         DEBIAN_VERSION=${{ matrix.debian-version }}
       push-image: false
       target: ${{ matrix.target }}
+
+  bump:
+    needs: build-container-image
+    uses: BlindfoldedSurgery/actions-releases/.github/workflows/commitizen-bump.yml@v2
+    secrets:
+      GH_TOKEN: ${{ secrets.GH_PR_TOKEN }}
+
+  version:
+    if: startsWith(github.ref, 'refs/tags/v')
+    uses: BlindfoldedSurgery/actions-releases/.github/workflows/commitizen-version.yml@v2
 
   push-container-image:
     needs: version
