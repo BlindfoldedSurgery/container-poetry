@@ -15,8 +15,10 @@ jobs:
         python-version: [ "3.11", "3.12" ]
         debian-version: [ "bullseye", "bookworm" ]
         target: [ "installer", "pipx" ]
-    uses: BlindfoldedSurgery/actions-container/.github/workflows/build-image-docker.yml@v2
+        platform: ["arm64", "amd64"]
+    uses: BlindfoldedSurgery/actions-container/.github/workflows/build-image-docker.yml@v3
     with:
+      platform: "linux/${{ matrix.platform }}"
       additional-build-args: |
         PYTHON_VERSION=${{ matrix.python-version }}
         DEBIAN_VERSION=${{ matrix.debian-version }}
@@ -29,7 +31,7 @@ jobs:
     secrets:
       GH_TOKEN: ${{ secrets.GH_PR_TOKEN }}
 
-  push-container-image:
+  push-container-images:
     if: needs.bump.outputs.bumped == 'true' && github.ref_name == github.event.repository.default_branch
     needs: bump
     strategy:
@@ -37,8 +39,10 @@ jobs:
         python-version: [ "3.11", "3.12" ]
         debian-version: [ "bullseye", "bookworm" ]
         target: [ "installer", "pipx" ]
-    uses: BlindfoldedSurgery/actions-container/.github/workflows/build-image-docker.yml@v2
+        platform: ["arm64", "amd64"]
+    uses: BlindfoldedSurgery/actions-container/.github/workflows/build-image-docker.yml@v3
     with:
+      platform: "linux/${{ matrix.platform }}"
       additional-build-args: |
         PYTHON_VERSION=${{ matrix.python-version }}
         DEBIAN_VERSION=${{ matrix.debian-version }}
@@ -46,3 +50,18 @@ jobs:
       push-image: true
       target: ${{ matrix.target }}
       version: ${{ needs.bump.outputs.version }}-${{ matrix.target }}-${{ matrix.python-version }}-${{ matrix.debian-version }}
+      tag-suffix: -${{ matrix.platform }}
+
+  merge-container-images:
+    needs:
+      - push-container-images
+    strategy:
+      matrix:
+        python-version: [ "3.11", "3.12" ]
+        debian-version: [ "bullseye", "bookworm" ]
+        target: [ "installer", "pipx" ]
+    uses: BlindfoldedSurgery/actions-container/.github/workflows/merge-manifests.yml@v3
+    with:
+      image-name: poetry
+      tag: ${{ needs.bump.outputs.version }}-${{ matrix.target }}-${{ matrix.python-version }}-${{ matrix.debian-version }}
+      variant-digests: digests
