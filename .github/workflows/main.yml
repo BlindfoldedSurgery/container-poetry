@@ -43,6 +43,7 @@ jobs:
     uses: BlindfoldedSurgery/actions-container/.github/workflows/build-image-docker.yml@v3
     with:
       platform: "linux/${{ matrix.platform }}"
+      digest-artifact-name: digests-${{ matrix.target }}-${{ matrix.python-version }}-${{ matrix.debian-version }}
       additional-build-args: |
         PYTHON_VERSION=${{ matrix.python-version }}
         DEBIAN_VERSION=${{ matrix.debian-version }}
@@ -64,4 +65,4 @@ jobs:
     with:
       image-name: poetry
       tag: ${{ needs.bump.outputs.version }}-${{ matrix.target }}-${{ matrix.python-version }}-${{ matrix.debian-version }}
-      variant-digests: digests
+      variant-digests: digests-${{ matrix.target }}-${{ matrix.python-version }}-${{ matrix.debian-version }}
