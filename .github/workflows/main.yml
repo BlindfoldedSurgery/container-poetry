@@ -55,6 +55,7 @@ jobs:
 
   merge-container-images:
     needs:
+      - bump
       - push-container-images
     strategy:
       matrix:
