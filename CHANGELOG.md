@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.1 (2023-11-11)
+
+### Fix
+
+- Add missing CI dependency for release process
+
 ## v1.1.0 (2023-11-11)
 
 ### Feat
