@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.0 (2023-11-11)
+
+### Feat
+
+- Build image for linux/arm64
+
 ## v1.0.3 (2023-11-06)
 
 ### Fix
