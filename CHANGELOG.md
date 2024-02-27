@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+### BREAKING CHANGE
+
+- Update Poetry to 1.8.x
+
 ## v1.1.1 (2023-11-11)
 
 ### Fix
