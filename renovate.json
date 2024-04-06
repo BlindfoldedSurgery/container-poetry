@@ -3,5 +3,25 @@
   "extends": [
     "local>BlindfoldedSurgery/renovate-config",
     ":semanticCommits"
+  ],
+  "packageRules": [
+    {
+      "matchDepNames": [
+        "poetry"
+      ],
+      "matchUpdateTypes": [
+        "minor"
+      ],
+      "semanticCommitType": "feat"
+    },
+    {
+      "matchDepNames": [
+        "poetry"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "semanticCommitType": "feat!"
+    }
   ]
 }
