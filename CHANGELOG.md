@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.0.1 (2024-04-06)
+
+### Fix
+
+- Bump version on Poetry updates
+
 ## v2.0.0 (2024-02-27)
 
 ### BREAKING CHANGE
