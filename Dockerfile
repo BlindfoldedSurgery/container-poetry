@@ -19,7 +19,7 @@ LABEL org.opencontainers.image.url="https://github.com/BlindfoldedSurgery/contai
 LABEL org.opencontainers.image.version=$APP_VERSION
 
 # renovate: datasource=pypi depName=poetry
-ENV POETRY_VERSION=1.8.2
+ENV POETRY_VERSION=1.8.3
 
 WORKDIR /app
 ENTRYPOINT [ "tini", "--", "poetry", "run" ]
