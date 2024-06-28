@@ -10,6 +10,15 @@
         "poetry"
       ],
       "matchUpdateTypes": [
+        "patch"
+      ],
+      "semanticCommitType": "fix"
+    },
+    {
+      "matchDepNames": [
+        "poetry"
+      ],
+      "matchUpdateTypes": [
         "minor"
       ],
       "semanticCommitType": "feat"
