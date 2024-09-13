@@ -30,7 +30,7 @@
       "matchUpdateTypes": [
         "major"
       ],
-      "semanticCommitType": "feat!"
+      "commitMessagePrefix": "feat(deps)!:"
     }
   ]
 }
