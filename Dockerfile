@@ -13,7 +13,6 @@ RUN apt-get update -qq \
 
 ARG APP_VERSION=dev
 LABEL org.opencontainers.image.description="Container image with Poetry pre-installed."
-LABEL org.opencontainers.image.licenses="MIT"
 LABEL org.opencontainers.image.source="https://github.com/BlindfoldedSurgery/container-poetry"
 LABEL org.opencontainers.image.url="https://github.com/BlindfoldedSurgery/container-poetry"
 LABEL org.opencontainers.image.version=$APP_VERSION
