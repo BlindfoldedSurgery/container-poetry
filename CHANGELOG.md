@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.1.1 (2024-10-18)
+
+### Fix
+
+- **deps**: update dependency pre-commit to v4
+
 ## v2.1.0 (2024-10-18)
 
 ### Feat
