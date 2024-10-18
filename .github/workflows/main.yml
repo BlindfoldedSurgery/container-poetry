@@ -8,13 +8,13 @@ jobs:
     if: github.event_name == 'pull_request'
     uses: BlindfoldedSurgery/actions-releases/.github/workflows/commitizen-check.yml@v2
     with:
-      python-version: '3.12'
+      python-version: '3.13'
 
   build-container-image:
     if: github.event_name == 'pull_request'
     strategy:
       matrix:
-        python-version: [ "3.11", "3.12" ]
+        python-version: [ "3.11", "3.12", "3.13" ]
         debian-version: [ "bullseye", "bookworm" ]
         target: [ "installer", "pipx" ]
         platform: ["arm64", "amd64"]
@@ -33,14 +33,14 @@ jobs:
     secrets:
       GH_TOKEN: ${{ secrets.GH_PR_TOKEN }}
     with:
-      python-version: '3.12'
+      python-version: '3.13'
 
   push-container-images:
     if: needs.bump.outputs.bumped == 'true' && github.ref_name == github.event.repository.default_branch
     needs: bump
     strategy:
       matrix:
-        python-version: [ "3.11", "3.12" ]
+        python-version: [ "3.11", "3.12", "3.13" ]
         debian-version: [ "bullseye", "bookworm" ]
         target: [ "installer", "pipx" ]
         platform: ["arm64", "amd64"]
@@ -63,7 +63,7 @@ jobs:
       - push-container-images
     strategy:
       matrix:
-        python-version: [ "3.11", "3.12" ]
+        python-version: [ "3.11", "3.12", "3.13" ]
         debian-version: [ "bullseye", "bookworm" ]
         target: [ "installer", "pipx" ]
     uses: BlindfoldedSurgery/actions-container/.github/workflows/merge-manifests.yml@v3
