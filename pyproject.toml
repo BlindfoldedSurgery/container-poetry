@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "container-poetry"
 description = "Container images containing Poetry"
-version = "2.1.0"
+version = "2.1.1"
 authors = ["BlindfoldedSurgery <team@blindfolded.surgery>"]
 license = "MIT"
 readme = "README.md"
