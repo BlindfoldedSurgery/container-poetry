@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.1.3 (2024-12-26)
+
+### Fix
+
+- use user uid in USER directive of Dockerfile
+
 ## v2.1.2 (2024-12-06)
 
 ### Fix
