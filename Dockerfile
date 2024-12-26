@@ -39,13 +39,13 @@ ENV PATH="$POETRY_HOME/bin:$PATH"
 
 RUN curl -sSL https://install.python-poetry.org | python3 -
 
-USER app
+USER 500
 
 
 # Variant based on pipx
 FROM base AS pipx
 
-USER app
+USER 500
 
 ENV PATH="${PATH}:/app/.local/bin"
 
