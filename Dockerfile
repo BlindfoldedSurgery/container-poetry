@@ -1,6 +1,6 @@
 ARG PYTHON_VERSION
 ARG DEBIAN_VERSION
-FROM python:${PYTHON_VERSION}-slim-${DEBIAN_VERSION} AS base
+FROM mirror.gcr.io/python:${PYTHON_VERSION}-slim-${DEBIAN_VERSION} AS base
 
 RUN groupadd --system --gid 500 app
 RUN useradd --system --uid 500 --gid app --create-home --home-dir /app -s /bin/bash app
