@@ -1,5 +1,11 @@
 # Changelog
 
+## v3.1.1 (2025-03-30)
+
+### Fix
+
+- **deps**: update dependency poetry to v2.1.2
+
 ## v3.1.0 (2025-02-27)
 
 ### Feat
