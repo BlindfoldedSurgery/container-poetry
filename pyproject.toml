@@ -12,11 +12,11 @@ classifiers = [
 
 dependencies = [
     "commitizen ==4.6.0",
-    "pre-commit >4, <5",
+    "pre-commit >=4.0.0, <5.0.0",
 ]
 
-[tool.poetry]
-package-mode = false
+[tool.uv]
+package = false
 
 [tool.commitizen]
 version_provider = "pep621"
