@@ -1,5 +1,17 @@
 # Changelog
 
+## v4.0.0 (2025-10-08)
+
+### Feat
+
+- add trixie variant
+- add Python 3.14 variant
+
+
+- remove bullseye variant
+- remove installer variant
+- remove support for Python 3.11
+
 ## v3.2.0 (2025-10-08)
 
 ### Feat
