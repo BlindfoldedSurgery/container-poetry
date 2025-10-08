@@ -18,7 +18,7 @@ jobs:
     if: github.event_name == 'pull_request'
     strategy:
       matrix:
-        python-version: [ "3.11", "3.12", "3.13" ]
+        python-version: [ "3.11", "3.12", "3.13", "3.14" ]
         debian-version: [ "bullseye", "bookworm" ]
         target: [ "installer", "pipx" ]
     uses: BlindfoldedSurgery/actions-container/.github/workflows/build-dual-image-kaniko.yml@v7
@@ -50,7 +50,7 @@ jobs:
     needs: bump
     strategy:
       matrix:
-        python-version: [ "3.11", "3.12", "3.13" ]
+        python-version: [ "3.11", "3.12", "3.13", "3.14" ]
         debian-version: [ "bullseye", "bookworm" ]
         target: [ "installer", "pipx" ]
     uses: BlindfoldedSurgery/actions-container/.github/workflows/build-dual-image-kaniko.yml@v7
