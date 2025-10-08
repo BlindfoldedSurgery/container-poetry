@@ -20,7 +20,7 @@ jobs:
       matrix:
         python-version: [ "3.12", "3.13", "3.14" ]
         debian-version: [ "bullseye", "bookworm" ]
-        target: [ "installer", "pipx" ]
+        target: [ "pipx" ]
     uses: BlindfoldedSurgery/actions-container/.github/workflows/build-dual-image-kaniko.yml@v7
     with:
       additional-build-args: |
@@ -52,7 +52,7 @@ jobs:
       matrix:
         python-version: [ "3.12", "3.13", "3.14" ]
         debian-version: [ "bullseye", "bookworm" ]
-        target: [ "installer", "pipx" ]
+        target: [ "pipx" ]
     uses: BlindfoldedSurgery/actions-container/.github/workflows/build-dual-image-kaniko.yml@v7
     with:
       additional-build-args: |
