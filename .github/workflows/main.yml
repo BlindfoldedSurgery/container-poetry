@@ -29,7 +29,7 @@ jobs:
         python-version: [ "3.12", "3.13", "3.14" ]
         debian-version: [ "bookworm", "trixie" ]
         target: [ "pipx" ]
-    uses: BlindfoldedSurgery/actions-container/.github/workflows/build-dual-image-kaniko.yml@v7
+    uses: BlindfoldedSurgery/actions-container/.github/workflows/build-dual-image-buildah.yml@v7
     permissions:
       contents: read
       packages: read
@@ -74,7 +74,7 @@ jobs:
         python-version: [ "3.12", "3.13", "3.14" ]
         debian-version: [ "bookworm", "trixie" ]
         target: [ "pipx" ]
-    uses: BlindfoldedSurgery/actions-container/.github/workflows/build-dual-image-kaniko.yml@v7
+    uses: BlindfoldedSurgery/actions-container/.github/workflows/build-dual-image-buildah.yml@v7
     permissions:
       contents: read
       packages: write
