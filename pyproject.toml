@@ -1,5 +1,5 @@
 [project]
-requires-python = "==3.13.*"
+requires-python = "==3.14.*"
 name = "container-poetry"
 description = "Container images containing Poetry"
 version = "4.0.0"
